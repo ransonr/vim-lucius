@@ -264,13 +264,14 @@ endfunction
 " ============================================================================
 
 let s:normal_items = [
-            \ "ColorColumn", "Comment", "Conceal", "Constant", "Cursor", "CursorColumn",
-            \ "CursorIM", "CursorLine", "CursorLineNr", "DiffAdd", "DiffChange",
-            \ "DiffDelete", "Directory", "Error", "ErrorMsg", "Identifier",
-            \ "IncSearch", "LineNr", "MatchParen", "ModeMsg", "MoreMsg",
-            \ "NonText", "Pmenu", "PmenuSbar", "PmenuSel",
-            \ "PmenuThumb", "PreProc", "Question", "Search", "SignColumn",
-            \ "Special", "SpecialKey", "Statement", "StatusLineNC", "TabLine",
+            \ "Boolean", "ColorColumn", "Comment", "Conceal", "Constant",
+            \ "Cursor", "CursorColumn", "CursorIM", "CursorLine",
+            \ "CursorLineNr", "DiffAdd", "DiffChange", "DiffDelete",
+            \ "Directory", "Error", "ErrorMsg", "Identifier", "IncSearch",
+            \ "LineNr", "MatchParen", "ModeMsg", "MoreMsg", "NonText",
+            \ "Number", "Pmenu", "PmenuSbar", "PmenuSel", "PmenuThumb",
+            \ "PreProc", "Question", "Search", "SignColumn", "Special",
+            \ "SpecialKey", "Statement", "StatusLineNC", "TabLine",
             \ "TabLineFill", "Todo", "Type", "VertSplit", "Visual",
             \ "WarningMsg", "WildMenu",
             \ ]
@@ -328,7 +329,7 @@ else
     if s:contrast_bg == "high"
         hi Normal                       guibg=#121212
     else
-        hi Normal                       guibg=#303030
+        hi Normal                       guibg=#3a3a3a
     endif
 endif
 
@@ -343,8 +344,8 @@ exec "set background=" . s:style
 
 " Clear default settings
 for s:item in s:normal_items + s:bold_items + s:underline_items + s:undercurl_items
-    exec "hi " . s:item . " guifg=NONE guibg=NONE gui=none"
-                \ . " ctermfg=NONE ctermbg=NONE cterm=none term=none"
+    exec "hi " . s:item . " guifg=NONE guibg=NONE gui=NONE"
+                \ . " ctermfg=NONE ctermbg=NONE cterm=NONE term=NONE"
 endfor
 
 let g:colors_name="lucius"
@@ -384,16 +385,18 @@ else
     hi NonText      guifg=#5f5f87
     hi SpecialKey   guifg=#5f875f
     if s:contrast == "low"
+        hi Boolean      guifg=#afafd7
         hi Comment      guifg=#6c6c6c
         hi Conceal      guifg=#6c6c6c
         hi Constant     guifg=#afaf87
         hi Directory    guifg=#87af87
         hi Identifier   guifg=#87af5f
+        hi Number       guifg=#d7875f
         hi PreProc      guifg=#5faf87
         hi Special      guifg=#af87af
         hi Statement    guifg=#5fafd7
         hi Title        guifg=#00afd7
-        hi Type         guifg=#5fafaf
+        hi Type         guifg=#d78787
     elseif s:contrast == "high"
         hi Comment      guifg=#8a8a8a
         hi Conceal      guifg=#8a8a8a
@@ -452,7 +455,7 @@ else
     hi CursorColumn                 guibg=#444444
     hi CursorLine                   guibg=#444444
     hi IncSearch    guifg=bg
-    hi MatchParen   guifg=fg        guibg=#87af00
+    hi MatchParen   guifg=fg        guibg=#0087ff
     hi Search       guifg=bg
     hi Visual                       guibg=#005f87
     if s:contrast == "low"
@@ -569,10 +572,10 @@ if s:style == "light"
         hi VertSplit                    guibg=#808080
     endif
 else
-    hi ColorColumn                  guibg=#3a3a3a
-    hi CursorLineNr guifg=#9e9e9e   guibg=#444444
-    hi FoldColumn                   guibg=#4e4e4e
-    hi Folded                       guibg=#4e4e4e
+    hi ColorColumn                  guibg=#444444
+    hi CursorLineNr guifg=#5fafff   guibg=#444444
+    hi FoldColumn                   guibg=#444444
+    hi Folded                       guibg=#444444
     hi LineNr       guifg=#626262   guibg=#444444
     hi PmenuSel                     guibg=#005f87
     hi SignColumn                   guibg=#4e4e4e
